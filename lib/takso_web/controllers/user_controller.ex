@@ -14,9 +14,14 @@ defmodule TaksoWeb.UserController do
   end
   def create(conn, %{"user" => user_params}) do
     changeset = User.changeset(%User{}, user_params)
-
-    Repo.insert(changeset)
-    redirect(conn, to: ~p"/users")
+    case Repo.insert(changeset) do
+      {:ok, _user} ->
+        conn
+          |> put_flash(:info, "User created successfully.")
+          |> redirect(to: ~p"/users")
+      {:error, %Ecto.Changeset{} = changeset} ->
+        render(conn, "new.html", changeset: changeset)
+    end
   end
   def edit(conn, %{"id" => id}) do
     user = Repo.get!(User, id)
