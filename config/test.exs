@@ -16,9 +16,9 @@ config :takso, Takso.Repo,
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
 config :takso, TaksoWeb.Endpoint,
-  http: [ip: {127, 0, 0, 1}, port: 4002],
+  http: [ip: {127, 0, 0, 1}, port: 4001],
   secret_key_base: "nR5xkmwJqYUlZ54euKhFaDH33h/WKLf8Je1QZrED8TH8DhnnBHIdMX7hHk2FUlmo",
-  server: false
+  server: true
 
 # In test we don't send emails
 config :takso, Takso.Mailer, adapter: Swoosh.Adapters.Test
@@ -35,3 +35,7 @@ config :phoenix, :plug_init_mode, :runtime
 # Enable helpful, but potentially expensive runtime checks
 config :phoenix_live_view,
   enable_expensive_runtime_checks: true
+
+# adding config for hound
+config :hound, driver: "chrome_driver", port: 55359  # If needed, update the port according to the chrome_drive message
+config :takso, sql_sandbox: true
