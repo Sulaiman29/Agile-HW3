@@ -37,5 +37,5 @@ config :phoenix_live_view,
   enable_expensive_runtime_checks: true
 
 # adding config for hound
-config :hound, driver: "chrome_driver", port: 55359  # If needed, update the port according to the chrome_drive message
+config :hound, driver: "chrome_driver", port: 52020  # If needed, update the port according to the chrome_drive message
 config :takso, sql_sandbox: true

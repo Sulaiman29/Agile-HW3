@@ -5,7 +5,7 @@ defmodule TaksoWeb.BookingController do
     render conn, "new.html"
   end
 
-   def index(conn, _params) do
+  def index(conn, _params) do
     render(conn, "index.html")
   end
 
@@ -13,7 +13,15 @@ defmodule TaksoWeb.BookingController do
     # At this moment, we simply return a success message without database interaction
     # Return a response indicating success, without saving to the database
     conn
-    |> put_flash(:info, "Your taxi will arrive in 2 minutes.")
+    |> put_flash(:info, "Your taxi will arrive in 5+ minutes")
     |> redirect(to: ~p"/bookings")  # Redirect to index
+  end
+
+  def show(conn, %{"id" => id}) do
+    # Placeholder for the show action
+    # If you're not using it yet, just redirect to index or render a show template
+    conn
+    |> put_flash(:info, "Your taxi will arrive in 5+ minutes")
+    |> redirect(to: ~p"/bookings")
   end
 end
