@@ -1,8 +1,8 @@
-<.header>
-  New Booking
-</.header>
-
-<h2>Site under construction.</h2>
-<input id="pickup_address">
-<input id="dropoff_address">
-<button id="submit_button">Submit</button>
+<.simple_form for={} action={~p"/bookings"}>
+  <.input name="pickup_address" value="abc" field={:pickup_address} type="text" label="Pickup Address" required={true} />
+  <.input name="dropoff_address" value="abc" field={:dropoff_address} type="text" label="Dropoff Address" required={true} />
+  
+  <:actions>
+    <.button>Submit Booking</.button>
+  </:actions>
+</.simple_form>
