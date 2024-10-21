@@ -3,3 +3,8 @@
     <%= @flash[:info] %>
   </div>
 <% end %>
+<%= if @flash[:error] do %>
+  <div class="alert alert-danger">
+    <%= @flash[:error] %>
+  </div>
+<% end %>
